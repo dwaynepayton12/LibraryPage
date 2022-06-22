@@ -109,3 +109,20 @@ function render() {
 }
 
 render();
+function render() {
+  checkLocalStorage();
+  $tableBody.innerHTML = "";
+  library.forEach((book) => {
+    const htmlBook = `
+      <tr>
+        <td>${book.name}</td>
+        <td>${book.author}</td>
+        <td><button class="status-button">${book.status}</button></td>
+        <td><button class="delete">delete</button></td>
+      </tr>
+      `;
+    $tableBody.insertAdjacentHTML("afterbegin", htmlBook);
+  });
+}
+
+render();
